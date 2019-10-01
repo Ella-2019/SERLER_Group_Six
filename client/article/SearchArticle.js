@@ -4,10 +4,7 @@ import PropTypes from 'prop-types'
 import {withStyles} from 'material-ui/styles'
 import Paper from 'material-ui/Paper'
 import Typography from 'material-ui/Typography'
-import ArticleTab from './../article/ArticleTab'
-import Person from 'material-ui-icons/Person'
-import {Link} from 'react-router-dom'
-import {list} from './api-article'
+
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -130,7 +127,7 @@ class SearchArticle extends Component {
               onClick={this.search.bind(this, "Goal")}
             > Serach </button>
              <p> </p>
-            <ArticleTab user={this.state.user} posts={this.state.posts} removePostUpdate={this.removePost}/>
+            {/*<ArticleTab user={this.state.user} posts={this.state.posts} removePostUpdate={this.removePost}/>*/}
           </Paper>
       </form>
     ) 

@@ -1,53 +1,86 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {withStyles} from 'material-ui/styles'
-import List, {ListItem, ListItemAvatar, ListItemIcon, ListItemSecondaryAction, ListItemText} from 'material-ui/List'
-import Avatar from 'material-ui/Avatar'
-import Button from 'material-ui/Button'
+import Paper from 'material-ui/Paper'
+import List, {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List'
+import IconButton from 'material-ui/IconButton'
 import Typography from 'material-ui/Typography'
+import ArrowForward from 'material-ui-icons/ArrowForward'
 import {Link} from 'react-router-dom'
-import GridList, { GridListTile } from 'material-ui/GridList'
-
+import {list} from './api-article.js'
 
 const styles = theme => ({
-  root: {
-    paddingTop: theme.spacing.unit*2,
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    background: theme.palette.background.paper,
-  },
-  gridList: {
-    width: 500,
-    height: 220,
-  },
-  tileText: {
-    textAlign: 'center',
-    marginTop: 10
+  root: theme.mixins.gutters({
+    padding: theme.spacing.unit,
+    margin: theme.spacing.unit * 5
+  }),
+  title: {
+    margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
+    color: theme.palette.openTitle
   }
 })
+
 class Test extends Component {
+  state = {
+      article: []
+  }
+
+  componentDidMount() {
+    list().then((data) => {
+      if (data.error) {
+        console.log(data.error)
+      } else {
+        this.setState({article: data})
+      }
+    })
+  }
+
   render() {
     const {classes} = this.props
-    return (<div className={classes.root}>
+    return (
+      <Paper className={classes.root} elevation={4}>
+        <Typography type="title" className={classes.title}>
+          All Article
+        </Typography>
+        <List dense>
+         {this.state.article.map((item, i) => {
+          return <Link to={"/articlSoli/" + item._id} key={i}>
+                    <ListItem button>
+                      <ListItemText primary={item.name}/>
+                    </ListItem>
+                 </Link>
+               })
+             }
+        </List>
+        
+      </Paper>
+    )
+  }
+}
+
+  /*render() {
+    const {classes} = this.props
+    return (
+      <Paper className={classes.root} elevation={4}>
+        <Typography type="title" className={classes.title}>
+          All Article
+        </Typography>
       <GridList cellHeight={160} className={classes.gridList} cols={4}>
-        {this.props.people.map((person, i) => {
+        {this.props.people.map((article, i) => {
            return  <GridListTile style={{'height':120}} key={i}>
-              <Link to={"/articleSoli/" + person._id}>
-                <Typography className={classes.tileText}>{person.name}</Typography>
+              <Link to={"/article/" + article._id}>
+                <Typography className={classes.tileText}>{article.name}</Typography>
               </Link>
             </GridListTile>
         })}
       </GridList>
-    </div>)
+      </Paper>
+    )
   }
-}
+*/
 
 Test.propTypes = {
-  classes: PropTypes.object.isRequired,
-  people: PropTypes.array.isRequired
+  classes: PropTypes.object.isRequired
 }
-
 
 export default withStyles(styles)(Test)
