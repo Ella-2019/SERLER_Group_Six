@@ -22,19 +22,41 @@ const styles = theme => ({
 
 class Test extends Component {
   state = {
-      article: []
+      articles: []
   }
 
+  
   componentDidMount() {
     list().then((data) => {
       if (data.error) {
         console.log(data.error)
       } else {
-        this.setState({article: data})
+        this.setState({users: data})
       }
     })
   }
 
+  /*render() {
+    const {classes} = this.props
+    return (
+      <Paper className={classes.root} elevation={4}>
+        <Typography type="title" className={classes.title}>
+          All Article
+        </Typography>
+        <List dense>
+         {this.state.articles.map((item, i) => {
+          return <Link to={"/article/" + item._id} key={i}>
+                    <ListItem button>
+                      <ListItemText primary={item.name}/>
+                    </ListItem>
+                    <Typography className={classes.tileText}>{item.name}</Typography>
+                 </Link>
+               })
+             }
+        </List>
+      </Paper>
+    )
+  }*/
   render() {
     const {classes} = this.props
     return (
@@ -43,8 +65,8 @@ class Test extends Component {
           All Article
         </Typography>
         <List dense>
-         {this.state.article.map((item, i) => {
-          return <Link to={"/articlSoli/" + item._id} key={i}>
+         {this.state.articles.map((item, i) => {
+          return <Link to={"/article/" + item._id} key={i}>
                     <ListItem button>
                       <ListItemText primary={item.name}/>
                     </ListItem>
@@ -52,11 +74,11 @@ class Test extends Component {
                })
              }
         </List>
-        
       </Paper>
     )
   }
 }
+
 
   /*render() {
     const {classes} = this.props

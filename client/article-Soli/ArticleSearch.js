@@ -14,8 +14,8 @@ import auth from './../auth/auth-helper'
 import {read} from './api-user.js'
 import {Redirect, Link} from 'react-router-dom'
 import FollowProfileButton from './../user/FollowProfileButton'
-import ArticleTab from './../article/ArticleTab'
-import {listByUser} from './../article/api-article.js'
+import ArticleTab from './../articleSoli/ArticleTab'
+import {listByUser} from './../articleSoli/api-article.js'
 
 const styles = theme => ({
   root: theme.mixins.gutters({

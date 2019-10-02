@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 import Typography from 'material-ui/Typography'
 import Tabs, { Tab } from 'material-ui/Tabs'
-import ArticleList from '../article/ArticleList'
+import ArticleList from '../articleSoli/ArticleList'
 import PostList from '../post/PostList'
 
 class ArticleTab extends Component {

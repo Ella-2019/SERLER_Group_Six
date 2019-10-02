@@ -27,7 +27,7 @@ import _ from 'lodash'
         })
       }
       res.json(articleSoli)
-    }).select('title author body addedon')
+    }).select('title author body addedOn')
   }
 
 export default {

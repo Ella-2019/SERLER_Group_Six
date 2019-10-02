@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import crypto from 'crypto'
 const ArticleSoliSchema = new mongoose.Schema({
         title: {
             type: String,
@@ -16,10 +17,10 @@ const ArticleSoliSchema = new mongoose.Schema({
             required: true
         },
         addedOn: {
-            type: Date,
-            default: Date.now,
+            type: String,
             required: true
         }
-    });
-    export default mongoose.model('ArticleSoli', ArticleSoliSchema);
+    })
+    export default mongoose.model('ArticleSoli', ArticleSoliSchema)
+
     

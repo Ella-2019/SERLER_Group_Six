@@ -9,8 +9,8 @@ import Profile from './user/Profile'
 import PrivateRoute from './auth/PrivateRoute'
 import Menu from './core/Menu'
 //import Dashboard from './article/dashboard.component'
-import SearchArticle from './article/SearchArticle'
-import Test from './article/Test'
+import SearchArticle from './article-Soli/SearchArticle'
+import Test from './article-Soli/Test'
 
 class MainRouter extends Component {
   // Removes the server-side injected CSS when React component mounts
