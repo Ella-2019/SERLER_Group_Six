@@ -59,6 +59,10 @@ class NewArticle extends Component {
     title: '',
     date: '',
     annotation: '',
+    journal:'',
+    volume:'',
+    number:'',
+    pages:'',
     filelink: '',
     error: '',
     user: {}
@@ -78,7 +82,7 @@ class NewArticle extends Component {
       if (data.error) {
         this.setState({error: data.error})
       } else {
-        this.setState({author:'', title:'', date:'', annotation:''})
+        this.setState({author:'', title:'', date:'', annotation:'', journal:'', volume:'', number:'', pages:''})
         this.props.addUpdate(data)
       }
     })
@@ -99,6 +103,10 @@ class NewArticle extends Component {
           <TextField id="author" label="Article Author" value={this.state.author} onChange={this.handleChange('author')}className={classes.textField} margin="normal"/><br/>
           <TextField id="title" label="Article Title" value={this.state.title} onChange={this.handleChange('title')} className={classes.textField} margin="normal"/><br/>
           <TextField id="date" label="Date (YYYY-mm-dd)" value={this.state.date} onChange={this.handleChange('date')} className={classes.textField} margin="normal"/><br/>
+          <TextField id="journal" label="Journal" value={this.state.journal} onChange={this.handleChange('journal')} className={classes.textField} margin="normal"/><br/>
+          <TextField id="volume" label="Volume" value={this.state.volume} onChange={this.handleChange('volume')} className={classes.textField} margin="normal"/><br/>
+          <TextField id="number" label="Number" value={this.state.number} onChange={this.handleChange('number')} className={classes.textField} margin="normal"/><br/>
+          <TextField id="pages" label="Pages" value={this.state.pages} onChange={this.handleChange('pages')} className={classes.textField} margin="normal"/><br/>
           <TextField id="annotation" label="Description" value={this.state.annotation} onChange={this.handleChange('annotation')} className={classes.textField} margin="normal"/><br/>
       </CardContent>
       <CardActions>

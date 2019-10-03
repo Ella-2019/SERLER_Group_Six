@@ -47,7 +47,10 @@ class FindArticle extends Component {
         columns={[
             { title: "AUTHOR", field: "author" },
             { title: "TITLE", field: "title" },
-            { title: "DATE", field: "date", type: "date" },
+            { title: "DATE OF PUBLICATION", field: "date" },
+            { title: "JOURNAL", field: "journal" },
+            { title: "VOLUME", field: "volume" },
+
         ]}
         data={this.state.articles.map((item, i) => item )}        
         actions={[
