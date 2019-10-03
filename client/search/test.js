@@ -7,7 +7,7 @@ import IconButton from 'material-ui/IconButton'
 import Typography from 'material-ui/Typography'
 import ArrowForward from 'material-ui-icons/ArrowForward'
 import {Link} from 'react-router-dom'
-import {list} from './api-article.js'
+//import {list} from './api-article.js.js'
 
 const styles = theme => ({
   root: theme.mixins.gutters({

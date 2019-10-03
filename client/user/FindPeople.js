@@ -95,9 +95,9 @@ class FindPeople extends Component {
                         <ViewIcon/>
                       </IconButton>
                     </Link>
-                    {/* <Button aria-label="Follow" variant="raised" color="primary" onClick={this.clickFollow.bind(this, item, i)}>
+                    <Button aria-label="Follow" variant="raised" color="primary" onClick={this.clickFollow.bind(this, item, i)}>
                       Follow
-                    </Button> */}
+                    </Button>
                   </ListItemSecondaryAction>
                 </ListItem>
               </span>

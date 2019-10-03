@@ -127,7 +127,8 @@ class SearchArticle extends Component {
               onClick={this.search.bind(this, "Goal")}
             > Serach </button>
              <p> </p>
-            {/*<ArticleTab user={this.state.user} posts={this.state.posts} removePostUpdate={this.removePost}/>*/}
+             <ArticleList removeUpdate={this.removeArticle} articles={this.state.articles}/>
+            <ArticleListAll user={this.state.user} posts={this.state.posts} removePostUpdate={this.removePost}/>
           </Paper>
       </form>
     ) 
