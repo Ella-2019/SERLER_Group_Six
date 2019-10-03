@@ -91,13 +91,13 @@ import fs from 'fs'
 }*/
 const listArticle = (req, res) => {
   
-  Article.find().exec((err, articles) => {
+  Article.find().exec((err, search) => {
     if (err) {
       return res.status(400).json({
         error: errorHandler.getErrorMessage(err)
       })
     }
-    res.json(articles)
+    res.json(search)
   })
 }
 const listFeed = (req, res) => {
@@ -111,10 +111,19 @@ const listFeed = (req, res) => {
     res.json(searches)
   })
 }
-
-
+const articleByID = (req, res, next, id) => { //it was postByID
+  Article.findById(id).populate('postedBy', '_id name').exec((err, article) => {
+    if (err || !article)
+      return res.status('400').json({
+        error: "Article not found"
+      })
+    req.article = article
+    next()
+  })
+}
 export default {
   listArticle,
   listFeed
+ , articleByID
 }
 

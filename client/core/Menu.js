@@ -47,7 +47,7 @@ const Menu = withRouter(({history}) => (
           </Link>
           <Link to="/searchArticle">
             <Button style={isActive(history, "/searchArticle")}>Search Articles
-          </Button>
+            </Button>
           </Link>
           <Button color="inherit" onClick={() => {
               auth.signout(() => history.push('/'))

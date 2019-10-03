@@ -55,13 +55,13 @@
   }
   
   //add soli 2019/10/2
-  /*const listArticle = () => {
+  const listArticle = () => {
     return fetch('/api/searches/searchArticleList/', {
       method: 'GET',
     }).then(response => {
       return response.json()
     }).catch((err) => console.log(err))
-  }*
+  }
   
   /*const list = () => {
   return fetch('/api/articleSoli/findArticle/', {
