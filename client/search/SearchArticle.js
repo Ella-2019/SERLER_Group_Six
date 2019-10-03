@@ -5,7 +5,7 @@ import Card from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import {listArticle} from './api-search'
 import auth from '../auth/auth-helper'
-//import ArticleList from '../article/ArticleList.js'
+import ArticleList from '../article/ArticleList.js'
 
 const styles = theme => ({
   card: {

@@ -122,8 +122,8 @@ const articleByID = (req, res, next, id) => { //it was postByID
   })
 }
 export default {
-  listArticle,
-  listFeed
- , articleByID
+  listArticle
+  //,listFeed
+ //,articleByID
 }
 

@@ -35,6 +35,10 @@ const Menu = withRouter(({history}) => (
             <Button style={isActive(history, "/signin")}>Sign In
             </Button>
           </Link>
+          <Link to="/searchArticle">
+            <Button style={isActive(history, "/searchArticle")}>Search Articles
+            </Button>
+          </Link>
           <Link to="/test">
             <Button style={isActive(history, "/test")}>Test</Button>
           </Link>
@@ -44,10 +48,6 @@ const Menu = withRouter(({history}) => (
         auth.isAuthenticated() && (<span>
           <Link to={"/user/" + auth.isAuthenticated().user._id}>
             <Button style={isActive(history, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
-          </Link>
-          <Link to="/searchArticle">
-            <Button style={isActive(history, "/searchArticle")}>Search Articles
-            </Button>
           </Link>
           <Button color="inherit" onClick={() => {
               auth.signout(() => history.push('/'))

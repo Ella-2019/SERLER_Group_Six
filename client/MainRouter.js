@@ -30,7 +30,7 @@ class MainRouter extends Component {
         <Route path="/users" component={Users}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/signin" component={Signin}/>
-       {/* <Route path="/searchArticle" component={SearchArticle}/>*/}
+        <Route path="/searchArticle" component={SearchArticle}/>
         <Route path="/test" component={Test}/>
         <PrivateRoute path="/user/edit/:userId" component={EditProfile}/>
         <Route path="/user/:userId" component={Profile}/>
