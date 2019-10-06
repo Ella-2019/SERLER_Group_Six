@@ -7,4 +7,10 @@
     "plugins": [
       "react-hot-loader/babel"
     ]
-}
+  }
+  //This on for test
+ /* {    
+    "presets": ["react-app"],
+    "plugins": ["@babel/plugin-transform-modules-commonjs"]
+}*/
+  

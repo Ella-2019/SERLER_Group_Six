@@ -9,8 +9,8 @@ const config = {
     (process.env.MONGO_PORT || '27017') +
     '/mernproject'
   */
- mongoUri: 'mongodb+srv://serler:serlersdm@cluster0-bwx14.mongodb.net/test?retryWrites=true&w=majority'
- 
+ mongoUri: 'mongodb+srv://serler:serlersdm@cluster0-bwx14.mongodb.net/test?retryWrites=true&w=majority',
+ //testDb: 'mongodb://127.0.0.1/macchiato_test'
 }
 
 export default config
