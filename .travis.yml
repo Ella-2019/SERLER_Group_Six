@@ -6,8 +6,8 @@ install:
 - npm install
 script:
 - npm run development
-script:
-- mongodb
+servies:
+- mongodb+srv://serler:serlersdm@cluster0-bwx14.mongodb.net/test?retryWrites=true&w=majority
 
 deploy:
   provider: pages
