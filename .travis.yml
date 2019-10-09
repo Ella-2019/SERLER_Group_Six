@@ -4,6 +4,12 @@ node_js:
 cache: npm
 install:
 - npm install
+script:
+- npm run build
+
+#this services still not clear if it necesary, please research
+services:
+ mongodb 
 
 deploy:
   provider: pages
