@@ -1,4 +1,4 @@
-
+import autht from './../auth/auth-helper.js'
 import Post from '../post/Post.js'
 import React from 'react'
 import renderer from 'react-test-renderer'
@@ -25,7 +25,7 @@ describe('App Component testing', function() {
     const post = dummyPostObject 
     const auth = dummyAuthObject 
    console.log("2")
-    auth.isAuthenticated.mock.verify(auth) 
+   autht.isAuthenticated.mock.verify(auth) 
 
   
     const component = renderer.create(

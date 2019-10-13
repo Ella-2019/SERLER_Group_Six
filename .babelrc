@@ -1,4 +1,4 @@
-{
+/*{
   "presets": [
     "env",
     "stage-2",
@@ -7,8 +7,12 @@
   "plugins": [
     "react-hot-loader/babel"
   ]
-}
-/*{    
-  "presets": ["react-app"],
+}*/
+  //This on for test
+ {    
+    "presets": ["react-app"],
     "plugins": ["@babel/plugin-transform-modules-commonjs"]
+}
+/*{
+   "presets": ["@babel/preset-env"] 
 }*/
