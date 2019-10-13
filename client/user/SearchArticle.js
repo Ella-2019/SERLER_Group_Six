@@ -1,10 +1,8 @@
-/*Create by Soli 20190925 */
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {withStyles} from 'material-ui/styles'
 import Paper from 'material-ui/Paper'
 import Typography from 'material-ui/Typography'
-
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -16,17 +14,13 @@ const styles = theme => ({
     color: theme.palette.openTitle
   }
 })
-
 class SearchArticle extends Component {
-  state = {
-    tab: 0,
-    posts: []
+  constructor(props) {
+    super(props);
   }
-
   search = (a, b) => {
     alert(b.type);
   }
-  
   render() {
     const {classes} = this.props
     return (     
@@ -126,9 +120,6 @@ class SearchArticle extends Component {
             <button
               onClick={this.search.bind(this, "Goal")}
             > Serach </button>
-             <p> </p>
-             <ArticleList removeUpdate={this.removeArticle} articles={this.state.articles}/>
-            <ArticleListAll user={this.state.user} posts={this.state.posts} removePostUpdate={this.removePost}/>
           </Paper>
       </form>
     ) 

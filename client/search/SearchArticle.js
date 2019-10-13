@@ -1,57 +1,141 @@
+/*Create by Soli 20190925 */
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {withStyles} from 'material-ui/styles'
-import Card from 'material-ui/Card'
+import Paper from 'material-ui/Paper'
 import Typography from 'material-ui/Typography'
-import {listArticle} from './api-search'
-import auth from '../auth/auth-helper'
-import ArticleList from '../article/ArticleList.js'
+
 
 const styles = theme => ({
-  card: {
-    margin: 'auto',
-    paddingTop: 0,
-    paddingBottom: theme.spacing.unit*3
-  },
+  root: theme.mixins.gutters({
+    padding: theme.spacing.unit,
+    margin: theme.spacing.unit * 5
+  }),
   title: {
-    padding:`${theme.spacing.unit * 3}px ${theme.spacing.unit * 2.5}px ${theme.spacing.unit * 2}px`,
-    color: theme.palette.openTitle,
-    fontSize: '1em'
-  },
-  media: {
-    minHeight: 330
+    margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
+    color: theme.palette.openTitle
   }
 })
+
 class SearchArticle extends Component {
   state = {
-    articles: []
+    tab: 0,
+    posts: []
   }
- 
-  loadArticles = () => {
-    listArticle().then((data) => {
-      if (data.error) {
-        console.log(data.error)
-      } else {
-        this.setState({articles: data})
-      }
-    })
-    componentDidMount = () => {
-      this.loadArticles()
-    }
+
+  search = (a, b) => {
+    alert(b.type);
   }
- render() {
+  
+  render() {
     const {classes} = this.props
-    return (
-      console.log(this.state),
-      <Card className={classes.card}>
-           <ArticleList  articles={this.state.articles}/>
-      </Card>
-    )
+    return (     
+      <form>
+        <Paper className={classes.root} elevation={4}>
+          <Typography type="title" className={classes.title}>
+            Search Article
+          </Typography>
+          <h>Description</h>
+            <input
+              type='text'
+              name='descArticle'
+              onChange={this.myChangeHandler}
+            />
+          <h>Enter Date from</h>
+            <input
+              type='date'
+              name='dateFrom'
+              onChange={this.myChangeHandler}
+            />
+          <h>to </h>
+          <input
+            type='date'
+            name='dateTo'
+            onChange={this.myChangeHandler}
+          />
+          <p> </p>
+          <h>If </h>
+          <select size="1" name="bibTxtSearchItem">
+            <option value="article">
+              article
+            </option>
+            <option value="auter">
+              auter
+            </option>
+            <option value="title">
+              title
+            </option>
+            <option value="journal">
+              journal
+            </option>
+            <option value="year">
+              year
+            </option>
+            <option value="volume">
+              volume
+            </option>
+            <option value="number">
+              number
+            </option>
+            <option value="pages">
+              pages
+            </option>
+            <option value="month">
+              month
+            </option>
+          </select>
+          operator<select size="1" name="oprateFilde">
+          <option value="if1">
+              contains
+            </option>
+            <option value="if2">
+              dose not contains
+            </option>
+            <option value="if3">
+              begins with
+            </option>
+            <option value="if4">
+              end with
+            </option>
+            <option value="if5">
+              is equat to
+            </option>
+            <option value="if6">
+              is less than
+            </option>
+            <option value="if7">
+              is less than or equal
+            </option>
+            <option value="if8">
+              more than or equal
+            </option>
+          </select>
+          <h>value </h>
+            <input
+              type='text'
+              name='valueArticle'
+              onChange={this.myChangeHandler}
+            />
+            <button type="button">
+              Add
+            </button>
+            <button type="button">
+              Delete
+            </button>
+            <p />
+            <button
+              onClick={this.search.bind(this, "Goal")}
+            > Serach </button>
+             <p> </p>
+             <ArticleList removeUpdate={this.removeArticle} articles={this.state.articles}/>
+            <ArticleListAll user={this.state.user} posts={this.state.posts} removePostUpdate={this.removePost}/>
+          </Paper>
+      </form>
+    ) 
   }
 }
 
 SearchArticle.propTypes = {
-  article: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired
 }
 

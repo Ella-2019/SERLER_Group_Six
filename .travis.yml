@@ -6,7 +6,7 @@ install:
 - npm install
 script:
 - npm run development
-script:
+services:
 -mongodb
 
 deploy:

@@ -13,7 +13,6 @@ const create = (params, credentials, article) => {
     })
   }
   
-
   const list = () => {
     return fetch('/api/articles/', {
       method: 'GET',
@@ -128,6 +127,7 @@ const create = (params, credentials, article) => {
   }
   
   export {
+    list,
     listFeed,
     listByUser,
     create,

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {withStyles} from 'material-ui/styles'
 import Card, {CardContent, CardMedia} from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
+import Typography from '@material-ui/core/Typography'
 import serlerImg from './../assets/images/logoSERLER.png'
 import {Link} from 'react-router-dom'
 import Grid from 'material-ui/Grid'
@@ -10,23 +10,24 @@ import auth from './../auth/auth-helper'
 import FindPeople from './../user/FindPeople'
 import ArticleList from './../article/ArticleList'
 import Newsfeed from './../post/Newsfeed'
+import FindArticle from './../article/FindArticle'
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    margin: 30,
+    margin: 10,
   },
   card: {
-    maxWidth: 600,
+    maxWidth: '200',
     margin: 'auto',
-    marginTop: theme.spacing.unit * 5
+    marginTop: 'auto'
   },
   title: {
     padding:`${theme.spacing.unit * 3}px ${theme.spacing.unit * 2.5}px ${theme.spacing.unit * 2}px`,
     color: theme.palette.text.secondary
   },
   media: {
-    minHeight: 330
+    minHeight: 450,
   }
 })
 
@@ -51,19 +52,21 @@ class Home extends Component {
   }
   render() {
     const {classes} = this.props
+    
     return (
       <div className={classes.root}>
         {this.state.defaultPage &&
           <Grid container spacing={24}>
-            <Grid item xs={12}>
+            <Grid item xs >
               <Card className={classes.card}>
-                <Typography type="headline" component="h2" className={classes.title}>
+               <Typography align='center' type="headline" className={classes.title}>
                   WELCOME!
                 </Typography>
                 <CardMedia className={classes.media} image={serlerImg} title="SERLER LOGO"/>
-                <CardContent>
-                </CardContent>
               </Card>
+            </Grid>
+            <Grid item xs={10}>
+              <FindArticle/>
             </Grid>
           </Grid>
         }
@@ -74,7 +77,6 @@ class Home extends Component {
             </Grid>
             <Grid item xs={6} sm={5}>
               <FindPeople/>
-              
             </Grid>
           </Grid>
         }
