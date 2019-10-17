@@ -11,7 +11,7 @@ import {create} from './api-article'
 import auth from './../auth/auth-helper'
 import IconButton from 'material-ui/IconButton'
 import PhotoCamera from 'material-ui-icons/PhotoCamera'
-
+import TextFileReader from './TextFileReader'
 const styles = theme => ({
   root: {
     backgroundColor: '#efefef',
@@ -108,6 +108,7 @@ class NewArticle extends Component {
           <TextField id="number" label="Number" value={this.state.number} onChange={this.handleChange('number')} className={classes.textField} margin="normal"/><br/>
           <TextField id="pages" label="Pages" value={this.state.pages} onChange={this.handleChange('pages')} className={classes.textField} margin="normal"/><br/>
           <TextField id="annotation" label="Description" value={this.state.annotation} onChange={this.handleChange('annotation')} className={classes.textField} margin="normal"/><br/>
+          <TextFileReader userId={this.state.user._id}/>
       </CardContent>
       <CardActions>
         <Button color="primary" variant="raised" disabled={this.state.author === ''} onClick={this.clickArticle} className={classes.submit}>SUBMIT</Button>
