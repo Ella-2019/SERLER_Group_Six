@@ -12,6 +12,8 @@ import auth from './../auth/auth-helper'
 import IconButton from 'material-ui/IconButton'
 import PhotoCamera from 'material-ui-icons/PhotoCamera'
 import TextFileReader from './TextFileReader'
+
+
 const styles = theme => ({
   root: {
     backgroundColor: '#efefef',
@@ -54,7 +56,9 @@ const styles = theme => ({
 })
 
 class NewArticle extends Component {
-  state = {
+  constructor(props) {
+    super(props)
+  this.state = {
     author: '',
     title: '',
     date: '',
@@ -67,7 +71,8 @@ class NewArticle extends Component {
     error: '',
     user: {}
   }
-
+  this.onLoadFile = this.onLoadFile.bind(this);
+}
   componentDidMount = () => {
     this.articleData = new FormData()
     this.setState({user: auth.isAuthenticated().user})
@@ -94,11 +99,93 @@ class NewArticle extends Component {
     this.articleData.set(name, value)
     this.setState({ [name]: value })
   }
+
+  ///////////////////////////Read File and Set data
+
+  onLoadFile = function (event){
+    var file = fileInput.files[0];
+    var filestr="";
+    var textType = /text.*/;
+    var str ="";
+    var reader = new FileReader();
+    var self = this;
+    if (file.type.match(textType)) {
+      reader.onload = function(r) {
+        filestr = reader.result;
+        //console.log(filestr);
+        //self.setState({ src: filestr },() => console.log(self.state.src),)
+        //find states
+        var content=filestr;
+        var i=0;
+        while (i < 7) {
+          content=content.replace("}",'');
+          content=content.replace("{",'');
+          content=content.replace("=",'');
+          content=content.replace(",",'');
+          i++;
+        }
+        console.log(content);
+        var a = content.search("author");
+        var b = content.search("title");
+        var strauthor=content.substring(a, b);
+        strauthor=strauthor.replace("author",'');
+        self.setState({ author: strauthor },() => console.log(self.state.author),)
+        content=content.replace(strauthor,'');
+        
+        var b = content.search("title");
+        var c = content.search("journal");
+        var strtitle=content.substring(b, c);
+        strtitle=strtitle.replace("title",'');
+        self.setState({ title: strtitle },() => console.log(self.state.title),)
+        content=content.replace(strtitle,'');
+        
+        c = content.search("journal");
+        var d = content.search("volume");
+        var strjournal=content.substring(c, d);
+        strjournal=strjournal.replace("journal",'');
+        self.setState({ journal: strjournal },() => console.log(self.state.journal),)
+        content=content.replace(strjournal,'');
+        
+        d = content.search("volume");
+        var e = content.search("date");
+        var strvolume=content.substring(d, e);
+        strvolume=strvolume.replace("volume",'');
+        self.setState({ volume: strvolume },() => console.log(self.state.volume),)
+        content=content.replace(strvolume,'');
+
+        e = content.search("date");
+        var f = content.search("number");
+        var strdate=content.substring(e,f);
+        strdate=strdate.replace("date",'');
+        self.setState({ date: strdate },() => console.log(self.state.date),)
+        content=content.replace(strdate,'');
+
+        f = content.search("number");
+        var g = content.search("pages");
+        var strnumber=content.substring(f, g);
+        strnumber=strnumber.replace("number",'');
+        self.setState({ number: strnumber },() => console.log(self.state.number),)
+        content=content.replace(strnumber,'');
+        
+        g = content.search("pages");
+        var strpages=content.substr(g);
+        strpages=strpages.replace("pages",'');
+        self.setState({ pages: strpages },() => console.log(self.state.pages),)
+
+        
+        // alert(content);
+      } 
+      //reader.readAsText(file,str); 
+      reader.readAsText(file); 
+    } 
+   }
+///////////////////////////////
+
   render() {
     const {classes} = this.props
     return (<div className={classes.root}>
       <Card className={classes.card}>
-      <CardContent className={classes.cardContent}>
+      <CardContent className={classes.cardContent}>  
         <Typography>BIBLIOGRAPHIC DETAILS</Typography>
           <TextField id="author" label="Article Author" value={this.state.author} onChange={this.handleChange('author')}className={classes.textField} margin="normal"/><br/>
           <TextField id="title" label="Article Title" value={this.state.title} onChange={this.handleChange('title')} className={classes.textField} margin="normal"/><br/>
@@ -108,7 +195,8 @@ class NewArticle extends Component {
           <TextField id="number" label="Number" value={this.state.number} onChange={this.handleChange('number')} className={classes.textField} margin="normal"/><br/>
           <TextField id="pages" label="Pages" value={this.state.pages} onChange={this.handleChange('pages')} className={classes.textField} margin="normal"/><br/>
           <TextField id="annotation" label="Description" value={this.state.annotation} onChange={this.handleChange('annotation')} className={classes.textField} margin="normal"/><br/>
-          <TextFileReader userId={this.state.user._id}/>
+        {/* <TextFileReader userId={this.state.user._id}/> */}
+        <input type="file" name="file" id="fileInput" accept=".txt" onChange={this.onLoadFile}/>
       </CardContent>
       <CardActions>
         <Button color="primary" variant="raised" disabled={this.state.author === ''} onClick={this.clickArticle} className={classes.submit}>SUBMIT</Button>
