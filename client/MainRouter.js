@@ -8,7 +8,7 @@ import EditProfile from './user/EditProfile'
 import Profile from './user/Profile'
 import PrivateRoute from './auth/PrivateRoute'
 import Menu from './core/Menu'
-import SearchArticle from './user/SearchArticle'
+import querybuilder from './article/querybuilder'
 
 class MainRouter extends Component {
   // Removes the server-side injected CSS when React component mounts
@@ -27,7 +27,7 @@ class MainRouter extends Component {
         <Route path="/users" component={Users}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/signin" component={Signin}/>
-        <Route path="/searchArticle" component={SearchArticle}/>
+        <Route path="/querybuilder" component={querybuilder}/>
         <PrivateRoute path="/user/edit/:userId" component={EditProfile}/>
         <Route path="/user/:userId" component={Profile}/>
       </Switch>
