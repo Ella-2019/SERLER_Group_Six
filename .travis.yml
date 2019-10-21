@@ -5,7 +5,7 @@ cache: npm
 install:
 - npm install
 script:
-- npm run development
+- npm run build
 
 deploy:
   provider: pages
@@ -13,4 +13,4 @@ deploy:
   github-token: $GITHUB_TOKEN
   local_dir: build
   on:
-    branch: develop
+    branch: yongmi
