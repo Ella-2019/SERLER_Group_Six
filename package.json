@@ -13,13 +13,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://Ella-2019.github.io/SERLER_Group_Six"
+    "url": "https://github.com/shamahoque/mern-social.git"
   },
-  "homepage": "https://Ella-2019.github.io/SERLER_Group_Six",
+  "homepage": "https://github.com/shamahoque/mern-social",
   "main": "./dist/server.generated.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "development": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
     "start": "NODE_ENV=production node ./dist/server.generated.js"
@@ -34,14 +32,9 @@
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
-<<<<<<< HEAD
     "css-loader": "^3.2.0",
     "file-loader": "^1.1.11",
     "mini-css-extract-plugin": "^0.8.0",
-=======
-    "file-loader": "1.1.11",
-    "gh-pages": "^2.1.1",
->>>>>>> 6ef4f543132f16929a33fcfa19479bb81b0398d7
     "nodemon": "1.17.3",
     "style-loader": "^1.0.0",
     "url-loader": "^2.2.0",
