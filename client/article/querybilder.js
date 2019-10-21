@@ -5,7 +5,7 @@ import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { ColumnDirective, ColumnsDirective, GridComponent, Inject, Page } from '@syncfusion/ej2-react-grids';
 import { isNullOrUndefined } from 'util';
 import {list} from './api-article.js' 
-
+/////
 const hardwareData= [
                     {"AUTHOR": "Pepito Arcoiris", "TITLE": "From data mining to knowledge discovery in databases", "DATE": "2018-05-07",
                     "JOURNAL": "ACM", "VOLUME": "02", "NUMBER": "01","PAGES":"01-41"  },
@@ -90,6 +90,7 @@ class querybuilder extends React.Component {
   render() {
       return (
       <div>
+        <style>@import url(https://cdn.syncfusion.com/ej2/material.css);</style>
           <QueryBuilderComponent width='100%' dataSource={hardwareData} columns={columnData} ref={(scope) => { this.qryBldrObj = scope; }} />
           <ButtonComponent onClick={this.updateRule()} >Filter Grid</ButtonComponent>
           <GridComponent allowPaging={true} dataSource={datamanager} width='100%'
@@ -113,41 +114,3 @@ class querybuilder extends React.Component {
 
   
   export default querybuilder;
-  
-
-/* import QueryBuilder from 'react-querybuilder';
-import React from 'react'
-
-const fields = [
-  { name: 'firstName', label: 'First Name' },
-  { name: 'lastName', label: 'Last Name' },
-  { name: 'age', label: 'Age' },
-  { name: 'address', label: 'Address' },
-  { name: 'phone', label: 'Phone' },
-  { name: 'email', label: 'Email' },
-  { name: 'twitter', label: 'Twitter' },
-  { name: 'isDev', label: 'Is a Developer?', value: false }
-];
- 
-
-class querybuilder extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-  }
-  this.logQuery = this.logQuery.bind(this);
-
-}
-logQuery(query) {
-  console.log(query);
-}
-render() {
-    return (
-        <div >
-            <QueryBuilder fields={fields} onQueryChange={this.logQuery} />
-        </div>
-    )
-    }
-}
-
-export default querybuilder; */
