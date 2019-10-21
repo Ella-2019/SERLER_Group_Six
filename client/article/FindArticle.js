@@ -1,15 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {withStyles} from 'material-ui/styles'
-import Paper from 'material-ui/Paper'
-import List, {ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText} from 'material-ui/List'
-import Avatar from 'material-ui/Avatar'
-import IconButton from 'material-ui/IconButton'
-import Typography from 'material-ui/Typography'
-import ArrowForward from 'material-ui-icons/ArrowForward'
-import Description from 'material-ui-icons/Description'
 import MaterialTable from 'material-table'
-import {Link} from 'react-router-dom'
 import {list} from './api-article.js'   
 
 const styles = theme => ({
