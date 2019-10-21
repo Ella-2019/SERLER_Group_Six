@@ -60,7 +60,7 @@ class Home extends Component {
             <Grid item xs >
               <Card className={classes.card}>
                <Typography align='center' type="headline" className={classes.title}>
-                  WELCOME!
+                  WELCOME TO SERLER!
                 </Typography>
                 <CardMedia className={classes.media} image={serlerImg} title="SERLER LOGO"/>
               </Card>

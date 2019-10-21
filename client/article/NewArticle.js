@@ -199,7 +199,7 @@ class NewArticle extends Component {
     const {classes} = this.props
     return (<div className={classes.root}>
       <Card className={classes.card}>
-      <CardContent className={classes.cardContent}>
+      <CardContent className={classes.cardContent}>  
         <Typography>BIBLIOGRAPHIC DETAILS</Typography>
           <TextField id="author" label="Article Author" value={this.state.author} onChange={this.handleChange('author')}className={classes.textField} margin="normal"/><br/>
           <TextField id="title" label="Article Title" value={this.state.title} onChange={this.handleChange('title')} className={classes.textField} margin="normal"/><br/>
