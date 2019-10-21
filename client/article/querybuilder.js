@@ -4,7 +4,7 @@ import { DataManager, Predicate, Query } from '@syncfusion/ej2-data';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { ColumnDirective, ColumnsDirective, GridComponent, Inject, Page } from '@syncfusion/ej2-react-grids';
 import { isNullOrUndefined } from 'util';
-import {list} from './api-article.js' 
+import {list} from './api-article.js'; 
 
 const hardwareData= [
                     {"AUTHOR": "Pepito Arcoiris", "TITLE": "From data mining to knowledge discovery in databases", "DATE": "2018-05-07",
@@ -53,12 +53,6 @@ const columnData= [
                   }
                   ];
                   
-/*{field: 'TaskID', label: 'TaskID', type: 'number', 
-                  operators: [{ key: 'equal', value: 'equal' },
-                  { key: 'greaterthan', value: 'greaterthan' }, { key: 'lessthan', value: 'lessthan' }]
-                  },*/
-//contains, notin,startswith,endswith,equal,lessthan,lessthanorequal,greaterthanorequal
-
 const datamanager = new DataManager(hardwareData);
 const query = new Query().select(['AUTHOR', 'TITLE', 'DATE', 'JOURNAL', 'VOLUME', 'NUMBER','PAGES']);
 
@@ -90,6 +84,7 @@ class querybuilder extends React.Component {
   render() {
       return (
       <div>
+          <style>@import url(https://cdn.syncfusion.com/ej2/material.css);</style>
           <QueryBuilderComponent width='100%' dataSource={hardwareData} columns={columnData} ref={(scope) => { this.qryBldrObj = scope; }} />
           <ButtonComponent onClick={this.updateRule()} >Filter Grid</ButtonComponent>
           <GridComponent allowPaging={true} dataSource={datamanager} width='100%'
