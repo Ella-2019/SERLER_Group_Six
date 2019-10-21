@@ -4,9 +4,7 @@ import {withStyles} from 'material-ui/styles'
 import Typography from '@material-ui/core/Typography'
 import Grid from 'material-ui/Grid'
 import ArticleTable from './ArticleTable'
-import ArticleQuery from './ArticleQuery'
-import {QueryBuilderComponent} from '@syncfusion/ej2-react-querybuilder';
-
+import ArticleQueryBuilder from './ArticleQueryBuilder'
 
 
 const styles = theme => ({
@@ -40,15 +38,13 @@ class Home extends Component {
     
     return (
       <div className={classes.root }>
-      <style>@import url(https://cdn.syncfusion.com/ej2/material.css);</style>
         {this.state.defaultPage &&
           <Grid container spacing={24}>
                <Typography align='center' type="headline" className={classes.title}>
                   Advanced Search
                 </Typography>
                 <Grid container>
-                 <QueryBuilderComponent />
-                  <ArticleQuery/>
+                  <ArticleQueryBuilder/>
                  </Grid>
                 <Grid container>
                     <ArticleTable/>
