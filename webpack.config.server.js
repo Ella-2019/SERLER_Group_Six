@@ -25,18 +25,18 @@ const config = {
                 test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
                 use: 'file-loader'
             },
-            {
-                test: /\.css$/,
-                use: [
-                  'isomorphic-style-loader',
-                  {
-                    loader: 'css-loader',
-                    options: {
-                      importLoaders: 1
-                    }
-                  }
-                ]
-              }
+             {
+                 test: /\.css$/,
+                 use: [
+                   'isomorphic-style-loader',
+                   {
+                     loader: 'css-loader',
+                     options: {
+                       importLoaders: 1
+                     }
+                   }
+                 ]
+               }
         ]
     }
 }

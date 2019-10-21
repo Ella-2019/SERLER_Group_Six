@@ -26,17 +26,17 @@ const config = {
                 use: 'file-loader'
             },
             {
-                test: /\.css$/,
-                use: [
-                  'isomorphic-style-loader',
-                  {
-                    loader: 'css-loader',
-                    options: {
-                      importLoaders: 1
-                    }
-                  }
-                ]
-              }
+                 test: /\.css$/,
+                 use: [
+                   'isomorphic-style-loader',
+                   {
+                     loader: 'css-loader',
+                     options: {
+                       importLoaders: 1
+                     }
+                   }
+                 ]
+               }
         ]
     }
 }

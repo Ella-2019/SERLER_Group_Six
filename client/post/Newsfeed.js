@@ -90,7 +90,7 @@ class Newsfeed extends Component {
   render() {
     const {classes} = this.props
     return (
-      console.log(this.state),
+      //console.log(this.state),
       <Card className={classes.card}>
         <Typography type="title" className={classes.title}>
           New Submission
